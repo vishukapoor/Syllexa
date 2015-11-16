@@ -92,7 +92,7 @@
 
 
             // Get the data
-            d3.json("data.json", function(error, data) {
+            d3.json("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Currency/data.json", function(error, data) {
               data.forEach(function(d) {
                 d.Date = parseDate(d.Date);
                 d.Oil = +d.Oil;
