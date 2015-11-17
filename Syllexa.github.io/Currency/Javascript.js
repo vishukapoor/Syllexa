@@ -10,8 +10,9 @@
             var formatDate = d3.time.format("%d-%m-%Y"), 
                 parseDate = formatDate.parse,
                 bisectDate = d3.bisector(function(d) { return d.Date; }).left, 
-                formatOutput0 = function(d) { return formatDate(d.Date) + " - " + d.Nifty; }, 
-                formatOutput1 = function(d) { return formatDate(d.Date) + " - " + d.Sensex; };
+                formatOutput0 = function(d) { return formatDate(d.Date) + " - " + d.USD_INR; }, 
+                formatOutput1 = function(d) { return formatDate(d.Date) + " - " + d.Pound_INR; };
+                formatOutput1 = function(d) { return formatDate(d.Date) + " - " + d.Euro_INR; };
 
             // Set the ranges for x 
             var main_x = d3.time.scale()
@@ -55,20 +56,34 @@
             var main_line0 = d3.svg.line()
                 .interpolate("cardinal")
                 .x(function(d) { return main_x(d.Date); })
-                .y(function(d) { return main_y0(d.Nifty); });
+                .y(function(d) { return main_y0(d.USD_INR); })
 
             var main_line1 = d3.svg.line()
                 .interpolate("cardinal")
                 .x(function(d) { return main_x(d.Date); })
-                .y(function(d) { return main_y1(d.Sensex); });
+                .y(function(d) { return main_y1(d.Pound_INR);});
+
+            var main_line2 = d3.svg.line()
+                .interpolate("cardinal")
+                .x(function(d) { return main_x(d.Date); })
+                .y(function(d) { return main_y0(d.Euro_INR);});
+
 
             var mini_line0 = d3.svg.line()
                 .x(function(d) { return mini_x(d.Date); })
-                .y(function(d) { return mini_y0(d.Nifty); });
+                .y(function(d) { return mini_y0(d.USD_INR
+); })
 
             var mini_line1 = d3.svg.line()
                 .x(function(d) { return mini_x(d.Date); })
-                .y(function(d) { return mini_y1(d.Sensex); });
+                .y(function(d) { return mini_y1(d.Pound_INR
+); });
+
+            var mini_line2 = d3.svg.line()
+                .x(function(d) { return mini_x(d.Date); })
+                .y(function(d) { return mini_y0(d.Euro_INR
+); });
+
 
             // Adds the svg canvas
             var svg = d3.select("body")
@@ -90,11 +105,12 @@
 
 
             // Get the data
-            d3.csv("https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/data.csv", function(error, data) {
+            d3.csv("https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Currency/Currency.csv", function(error, data) {
               data.forEach(function(d) {
                 d.Date = parseDate(d.Date);
-                d.Nifty = +d.Nifty;
-                d.Sensex = +d.Sensex;
+                d.USD_INR = +d.USD_INR;
+                d.Pound_INR= +d.Pound_INR;
+                d.Euro_INR= +d.Euro_INR;
               });
 
               data.sort(function(a, b) {
@@ -103,9 +119,9 @@
 
             // Scale the range of the data
               main_x.domain([data[0].Date, data[data.length - 1].Date]);
-              main_y0.domain(d3.extent(data, function(d) { return d.Nifty; }));
-//              main_y0.domain([0.1, d3.max(data, function(d) { return d.Nifty; })]);
-              main_y1.domain(d3.extent(data, function(d) { return d.Sensex; }));
+              main_y0.domain([d3.min(data, function(d) { return d.USD_INR; }), d3.max(data, function(d) { return d.Euro_INR; })]);
+              main_y1.domain(d3.extent(data, function(d) { return d.Pound_INR; }));
+              
               mini_x.domain(main_x.domain());
               mini_y0.domain(main_y0.domain());
               mini_y1.domain(main_y1.domain());
@@ -123,6 +139,13 @@
                   .attr("class", "line line1")
                   .attr("d", main_line1);
 
+              main.append("path")
+                  .datum(data)
+                  .attr("clip-path", "url(#clip)")
+                  .attr("class", "line line2")
+                  .attr("d", main_line2);
+
+
             // Add the X Axis
               main.append("g")
                   .attr("class", "x axis")
@@ -138,7 +161,7 @@
                   .attr("y", 6)
                   .attr("dy", ".71em")
                   .style("text-anchor", "end")
-                  .text("Nifty");
+                  .text("USD_INR & Euro_INR")
 
             // Add the Y2 Axis
               main.append("g")
@@ -150,7 +173,7 @@
                   .attr("y", -12)
                   .attr("dy", ".71em")
                   .style("text-anchor", "end")
-                  .text("Sensex");
+                  .text("Pound_INR");
 
               mini.append("g")
                   .attr("class", "x axis")
@@ -167,6 +190,12 @@
                   .datum(data)
                   .attr("class", "line")
                   .attr("d", mini_line1);
+
+              mini.append("path")
+                  .datum(data)
+                  .attr("class", "line")
+                  .attr("d", mini_line2);
+
 
               mini.append("g")
                   .attr("class", "x brush")
@@ -197,6 +226,11 @@
                   .attr("x1", main_width - 6)
                   .attr("x2", main_width + 6);
 
+              focus.append("line")
+                  .attr("class", "y2")
+                  .attr("x1", main_width - 6)
+                  .attr("x2", main_width + 6);
+
             // append the circle at the intersection
               focus.append("circle")
                   .attr("class", "y0")
@@ -211,10 +245,23 @@
               focus.append("circle")
                   .attr("class", "y1")
                   .attr("r", 4);
+
             // append the text at the intersection of x axis and y1
               focus.append("text")
                   .attr("class", "y1")
                   .attr("dy", "-1em");
+
+
+            // append the circle at the intersection
+              focus.append("circle")
+                  .attr("class", "y2")
+                  .attr("r", 4);
+
+            // append the text at the intersection of x axis and y1
+              focus.append("text")
+                  .attr("class", "y2")
+                  .attr("dy", "-1em");
+
 
             // The rectangle for slider
               main.append("rect")
@@ -232,13 +279,21 @@
                     d0 = data[i - 1],
                     d1 = data[i],
                     d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
-                focus.select("circle.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Nifty) + ")");
-                focus.select("text.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Nifty) + ")").text(formatOutput0(d));
-                focus.select("circle.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Sensex) + ")");
-                focus.select("text.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Sensex) + ")").text(formatOutput1(d));
+                focus.select("circle.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.USD_INR) + ")");
+                focus.select("text.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.USD_INR) + ")").text(formatOutput0(d));
+                focus.select("circle.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Pound_INR
+) + ")");
+                focus.select("text.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Pound_INR
+) + ")").text(formatOutput1(d));
+                focus.select("circle.y2").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Euro_INR
+) + ")");
+                focus.select("text.y2").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Euro_INR
+) + ")").text(formatOutput1(d));
+
                 focus.select(".x").attr("transform", "translate(" + main_x(d.Date) + ",0)");
-                focus.select(".y0").attr("transform", "translate(" + main_width * -1 + ", " + main_y0(d.Nifty) + ")").attr("x2", main_width + main_x(d.Date));
-                focus.select(".y1").attr("transform", "translate(0, " + main_y1(d.Sensex) + ")").attr("x1", main_x(d.Date));
+                focus.select(".y0").attr("transform", "translate(" + main_width * -1 + ", " + main_y0(d.USD_INR) + ")").attr("x2", main_width + main_x(d.Date));
+                focus.select(".y1").attr("transform", "translate(0, " + main_y1(d.Pound_INR) + ")").attr("x1", main_x(d.Date));
+                focus.select(".y2").attr("transform", "translate(0, " + main_y2(d.Euro_INR) + ")").attr("x1", main_x(d.Date));                
               }
             });
 
@@ -246,5 +301,6 @@
               main_x.domain(brush.empty() ? mini_x.domain() : brush.extent());
               main.select(".line0").attr("d", main_line0);
               main.select(".line1").attr("d", main_line1);
+              main.select(".line2").attr("d", main_line2);
               main.select(".x.axis").call(main_xAxis);
             }
