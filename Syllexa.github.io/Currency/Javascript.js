@@ -1,4 +1,4 @@
-        // Set the dimensions of the canvas / graph
+              // Set the dimensions of the canvas / graph
             // Main is for charts and mini is for slider which would be below the chart
             var main_margin = {top: 20, right: 80, bottom: 100, left: 40},
                 mini_margin = {top: 430, right: 80, bottom: 20, left: 40},
@@ -7,11 +7,11 @@
                 mini_height = 500 - mini_margin.top - mini_margin.bottom;
 
             // Parse the date / time
-            var formatDate = d3.time.format("%d-%m"), 
+            var formatDate = d3.time.format("%d-%m-%Y"), 
                 parseDate = formatDate.parse,
                 bisectDate = d3.bisector(function(d) { return d.Date; }).left, 
-                formatOutput0 = function(d) { return formatDate(d.Date) + " - " + d.Oil; }, 
-                formatOutput1 = function(d) { return formatDate(d.Date) + " - " + d.Gold; };
+                formatOutput0 = function(d) { return formatDate(d.Date) + " - " + d.Nifty; }, 
+                formatOutput1 = function(d) { return formatDate(d.Date) + " - " + d.Sensex; };
 
             // Set the ranges for x 
             var main_x = d3.time.scale()
@@ -20,13 +20,13 @@
                 .range([0, main_width]);
 
             // Set the ranges for y
-            var main_y0 = d3.scale.linear()
+            var main_y0 = d3.scale.sqrt()
                 .range([main_height, 0]),
-                main_y1 = d3.scale.linear()
+                main_y1 = d3.scale.sqrt()
                 .range([main_height, 0]),
-                mini_y0 = d3.scale.linear()
+                mini_y0 = d3.scale.sqrt()
                 .range([mini_height, 0]),
-                mini_y1 = d3.scale.linear()
+                mini_y1 = d3.scale.sqrt()
                 .range([mini_height, 0]);
 
             // Define the axes
@@ -34,7 +34,6 @@
                 .scale(main_x)
                 .tickFormat(d3.time.format("%d-%m-%Y"))
                 .orient("bottom"),
-              
                 mini_xAxis = d3.svg.axis() //this is for slider
                 .scale(mini_x)
                 .tickFormat(d3.time.format("%d-%m-%Y"))
@@ -56,20 +55,20 @@
             var main_line0 = d3.svg.line()
                 .interpolate("cardinal")
                 .x(function(d) { return main_x(d.Date); })
-                .y(function(d) { return main_y0(d.Oil); });
+                .y(function(d) { return main_y0(d.Nifty); });
 
             var main_line1 = d3.svg.line()
                 .interpolate("cardinal")
                 .x(function(d) { return main_x(d.Date); })
-                .y(function(d) { return main_y1(d.Gold); });
+                .y(function(d) { return main_y1(d.Sensex); });
 
             var mini_line0 = d3.svg.line()
                 .x(function(d) { return mini_x(d.Date); })
-                .y(function(d) { return mini_y0(d.Oil); });
+                .y(function(d) { return mini_y0(d.Nifty); });
 
             var mini_line1 = d3.svg.line()
                 .x(function(d) { return mini_x(d.Date); })
-                .y(function(d) { return mini_y1(d.Gold); });
+                .y(function(d) { return mini_y1(d.Sensex); });
 
             // Adds the svg canvas
             var svg = d3.select("body")
@@ -85,18 +84,17 @@
 
             var main = svg.append("g")
                 .attr("transform", "translate(" + main_margin.left + "," + main_margin.top + ")");
-                
 
             var mini = svg.append("g")
                 .attr("transform", "translate(" + mini_margin.left + "," + mini_margin.top + ")");
 
 
             // Get the data
-            d3.json("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Currency/data.json", function(error, data) {
+            d3.csv("https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/data.csv", function(error, data) {
               data.forEach(function(d) {
                 d.Date = parseDate(d.Date);
-                d.Oil = +d.Oil;
-                d.Gold = +d.Gold;
+                d.Nifty = +d.Nifty;
+                d.Sensex = +d.Sensex;
               });
 
               data.sort(function(a, b) {
@@ -105,9 +103,9 @@
 
             // Scale the range of the data
               main_x.domain([data[0].Date, data[data.length - 1].Date]);
-              main_y0.domain(d3.extent(data, function(d) { return d.Oil; }));
-              main_y0.domain([0.1, d3.max(data, function(d) { return d.Oil; })]);
-              main_y1.domain(d3.extent(data, function(d) { return d.Gold; }));
+              main_y0.domain(d3.extent(data, function(d) { return d.Nifty; }));
+//              main_y0.domain([0.1, d3.max(data, function(d) { return d.Nifty; })]);
+              main_y1.domain(d3.extent(data, function(d) { return d.Sensex; }));
               mini_x.domain(main_x.domain());
               mini_y0.domain(main_y0.domain());
               mini_y1.domain(main_y1.domain());
@@ -140,7 +138,7 @@
                   .attr("y", 6)
                   .attr("dy", ".71em")
                   .style("text-anchor", "end")
-                  .text("Oil");
+                  .text("Nifty");
 
             // Add the Y2 Axis
               main.append("g")
@@ -152,8 +150,12 @@
                   .attr("y", -12)
                   .attr("dy", ".71em")
                   .style("text-anchor", "end")
-                  .text("Gold");
+                  .text("Sensex");
 
+              mini.append("g")
+                  .attr("class", "x axis")
+                  .attr("transform", "translate(0," + mini_height + ")")
+                  .call(main_xAxis);
 
             // Add the valueline path for slider
               mini.append("path")
@@ -230,13 +232,13 @@
                     d0 = data[i - 1],
                     d1 = data[i],
                     d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
-                focus.select("circle.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Oil) + ")");
-                focus.select("text.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Oil) + ")").text(formatOutput0(d));
-                focus.select("circle.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Gold) + ")");
-                focus.select("text.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Gold) + ")").text(formatOutput1(d));
+                focus.select("circle.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Nifty) + ")");
+                focus.select("text.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Nifty) + ")").text(formatOutput0(d));
+                focus.select("circle.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Sensex) + ")");
+                focus.select("text.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Sensex) + ")").text(formatOutput1(d));
                 focus.select(".x").attr("transform", "translate(" + main_x(d.Date) + ",0)");
-                focus.select(".y0").attr("transform", "translate(" + main_width * -1 + ", " + main_y0(d.Oil) + ")").attr("x2", main_width + main_x(d.Date));
-                focus.select(".y1").attr("transform", "translate(0, " + main_y1(d.Gold) + ")").attr("x1", main_x(d.Date));
+                focus.select(".y0").attr("transform", "translate(" + main_width * -1 + ", " + main_y0(d.Nifty) + ")").attr("x2", main_width + main_x(d.Date));
+                focus.select(".y1").attr("transform", "translate(0, " + main_y1(d.Sensex) + ")").attr("x1", main_x(d.Date));
               }
             });
 
