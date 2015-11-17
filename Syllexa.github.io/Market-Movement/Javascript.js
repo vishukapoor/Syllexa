@@ -20,13 +20,13 @@
                 .range([0, main_width]);
 
             // Set the ranges for y
-            var main_y0 = d3.scale.linear()
+            var main_y0 = d3.scale.sqrt()
                 .range([main_height, 0]),
-                main_y1 = d3.scale.linear()
+                main_y1 = d3.scale.sqrt()
                 .range([main_height, 0]),
-                mini_y0 = d3.scale.linear()
+                mini_y0 = d3.scale.sqrt()
                 .range([mini_height, 0]),
-                mini_y1 = d3.scale.linear()
+                mini_y1 = d3.scale.sqrt()
                 .range([mini_height, 0]);
 
             // Define the axes
