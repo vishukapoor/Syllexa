@@ -90,7 +90,7 @@
 
 
             // Get the data
-            d3.csv("https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Currency/data.csv", function(error, data) {
+            d3.csv("https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Commodity/data.csv", function(error, data) {
               data.forEach(function(d) {
                 d.Date = parseDate(d.Date);
                 d.Oil = +d.Oil;
