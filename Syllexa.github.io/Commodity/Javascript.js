@@ -153,7 +153,10 @@
                   .attr("dy", ".71em")
                   .style("text-anchor", "end")
                   .text("Gold");
-
+           mini.append("g")		
+                  .attr("class", "x axis")		
+                  .attr("transform", "translate(0," + mini_height + ")")		
+                  .call(main_xAxis);
 
             // Add the valueline path for slider
               mini.append("path")
