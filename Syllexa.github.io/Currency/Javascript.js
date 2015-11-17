@@ -25,9 +25,13 @@
                 .range([main_height, 0]),
                 main_y1 = d3.scale.sqrt()
                 .range([main_height, 0]),
+                main_y2 = d3.scale.sqrt()
+                .range([main_height, 0]),
                 mini_y0 = d3.scale.sqrt()
                 .range([mini_height, 0]),
                 mini_y1 = d3.scale.sqrt()
+                .range([mini_height, 0]);
+                mini_y2 = d3.scale.sqrt()
                 .range([mini_height, 0]);
 
             // Define the axes
