@@ -106,7 +106,7 @@
             // Scale the range of the data
               main_x.domain([data[0].Date, data[data.length - 1].Date]);
               main_y0.domain(d3.extent(data, function(d) { return d.Oil; }));
-              main_y0.domain([0.1, d3.max(data, function(d) { return d.Oil; })]);
+             // main_y0.domain([0.1, d3.max(data, function(d) { return d.Oil; })]);
               main_y1.domain(d3.extent(data, function(d) { return d.Gold; }));
               mini_x.domain(main_x.domain());
               mini_y0.domain(main_y0.domain());
