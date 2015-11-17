@@ -1,75 +1,78 @@
-/* Initial body */
 body {
-	background-image: url("https://cloud.githubusercontent.com/assets/15011101/11177571/6b60110c-8c6c-11e5-997b-8d2414c931ca.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	left: 0;
-	margin: 0;
-	overflow: hidden;
-	position: relative;
+  font: 10px sans-serif;
 }
 
-/* Initial menu */
-.menu {
-  background: #202024 url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/black-thread.png') repeat left top;
-  left: -285px;  /* start off behind the scenes */
-  height: 100%;
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.chart-class {
   position: fixed;
-  width: 285px;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
 }
 
-/* Basic styling */
 
-.Content {
-  height: 100%;
-  -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
+.x.axis path {
+  display: none;
 }
 
-.menu ul {
-  border-top: 1px solid #636366;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+
+.line {
+  stroke: black;
+  fill: none;
+  stroke-width: 0.75px;
 }
 
-.menu li {
-  border-bottom: 1px solid #636366;
-  font-family: 'Open Sans', sans-serif;
-  line-height: 45px;
-  padding-bottom: 3px;
-  padding-left: 20px;
-  padding-top: 3px;
+.line.line0 {
+  stroke: steelblue;
 }
 
-.menu a {
-  color: #fff;
-  font-size: 15px;
-  text-decoration: none;
-  text-transform: uppercase;
+.line.line1 {
+  stroke: indianred;
 }
 
-.icon-close {
-  cursor: pointer;
-  padding-left: 10px;
-  padding-top: 10px;
+.overlay {
+  fill: none;
+  pointer-events: all;
 }
 
-.icon-menu {
-  color: #fff;
-  cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  padding-bottom: 25px;
-  padding-left: 25px;
-  padding-top: 25px;
-  text-decoration: none;
-  text-transform: uppercase;	
-  float:left;
+.focus circle {
+  fill: none;
 }
 
-.icon-menu i {
-  margin-right: 5px;
+.focus circle.y0 {
+  stroke: blue;
+}
+
+.focus circle.y1 {
+  stroke: red;
+}
+
+.focus line {
+  stroke: purple;
+  shape-rendering: crispEdges;
+}
+
+.focus line.y0 {
+  stroke: steelblue;
+  stroke-dasharray: 3 3;
+  opacity: .5;
+}
+
+.focus line.y1 {
+  stroke: indianred;
+  stroke-dasharray: 3 3;
+  opacity: .5;
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
 }
