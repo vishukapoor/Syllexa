@@ -1,4 +1,4 @@
-        // Set the dimensions of the canvas / graph
+              // Set the dimensions of the canvas / graph
             // Main is for charts and mini is for slider which would be below the chart
             var main_margin = {top: 20, right: 80, bottom: 100, left: 40},
                 mini_margin = {top: 430, right: 80, bottom: 20, left: 40},
@@ -7,7 +7,7 @@
                 mini_height = 500 - mini_margin.top - mini_margin.bottom;
 
             // Parse the date / time
-            var formatDate = d3.time.format("%d-%m"), 
+            var formatDate = d3.time.format("%d-%m-%Y"), 
                 parseDate = formatDate.parse,
                 bisectDate = d3.bisector(function(d) { return d.Date; }).left, 
                 formatOutput0 = function(d) { return formatDate(d.Date) + " - " + d.Nifty; }, 
@@ -34,7 +34,6 @@
                 .scale(main_x)
                 .tickFormat(d3.time.format("%d-%m-%Y"))
                 .orient("bottom"),
-              
                 mini_xAxis = d3.svg.axis() //this is for slider
                 .scale(mini_x)
                 .tickFormat(d3.time.format("%d-%m-%Y"))
@@ -85,14 +84,13 @@
 
             var main = svg.append("g")
                 .attr("transform", "translate(" + main_margin.left + "," + main_margin.top + ")");
-                
 
             var mini = svg.append("g")
                 .attr("transform", "translate(" + mini_margin.left + "," + mini_margin.top + ")");
 
 
             // Get the data
-            d3.json("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/data.json", function(error, data) {
+            d3.csv("data.csv", function(error, data) {
               data.forEach(function(d) {
                 d.Date = parseDate(d.Date);
                 d.Nifty = +d.Nifty;
@@ -106,7 +104,7 @@
             // Scale the range of the data
               main_x.domain([data[0].Date, data[data.length - 1].Date]);
               main_y0.domain(d3.extent(data, function(d) { return d.Nifty; }));
-              main_y0.domain([0.1, d3.max(data, function(d) { return d.Nifty; })]);
+//              main_y0.domain([0.1, d3.max(data, function(d) { return d.Nifty; })]);
               main_y1.domain(d3.extent(data, function(d) { return d.Sensex; }));
               mini_x.domain(main_x.domain());
               mini_y0.domain(main_y0.domain());
@@ -154,6 +152,10 @@
                   .style("text-anchor", "end")
                   .text("Sensex");
 
+              mini.append("g")
+                  .attr("class", "x axis")
+                  .attr("transform", "translate(0," + mini_height + ")")
+                  .call(main_xAxis);
 
             // Add the valueline path for slider
               mini.append("path")
