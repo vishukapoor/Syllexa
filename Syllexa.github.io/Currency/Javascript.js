@@ -10,7 +10,7 @@
             var formatDate = d3.time.format("%d-%m-%Y"), 
                 parseDate = formatDate.parse,
                 bisectDate = d3.bisector(function(d) { return d.Date; }).left, 
-                formatOutput0 = function(d) { return formatDate(d.Date) + " - " + d.USD_INR + "Try"; }, 
+                formatOutput0 = function(d) { return formatDate(d.Date) + " - " + d.USD_INR; }, 
                 formatOutput1 = function(d) { return formatDate(d.Date) + " - " + d.Pound_INR; };
                 formatOutput2 = function(d) { return formatDate(d.Date) + " - " + d.Euro_INR; };
 
@@ -30,7 +30,7 @@
                 mini_y1 = d3.scale.sqrt()
                 .range([mini_height, 0]);
 
-            // Define the axes
+            // Define the x axes
             var main_xAxis = d3.svg.axis()
                 .scale(main_x)
                 .tickFormat(d3.time.format("%d-%m-%Y"))
@@ -40,6 +40,7 @@
                 .tickFormat(d3.time.format("%d-%m-%Y"))
                 .orient("bottom");
 
+            // Define the y axes  
             var main_yAxisLeft = d3.svg.axis()
                 .scale(main_y0)
                 .orient("left");
@@ -52,33 +53,37 @@
                 .x(mini_x)
                 .on("brush", brush);
 
-            // Define the line
+            // Defining USD_INR line
             var main_line0 = d3.svg.line()
                 .interpolate("cardinal")
                 .x(function(d) { return main_x(d.Date); })
                 .y(function(d) { return main_y0(d.USD_INR); })
-
+              
+              // Defining Pound_INR line      
             var main_line1 = d3.svg.line()
                 .interpolate("cardinal")
                 .x(function(d) { return main_x(d.Date); })
                 .y(function(d) { return main_y1(d.Pound_INR);});
-
+            
+            // Defining Euro_INR line
             var main_line2 = d3.svg.line()
                 .interpolate("cardinal")
                 .x(function(d) { return main_x(d.Date); })
                 .y(function(d) { return main_y0(d.Euro_INR);});
 
-
+              // Defining USD_INR  mini line
             var mini_line0 = d3.svg.line()
                 .x(function(d) { return mini_x(d.Date); })
                 .y(function(d) { return mini_y0(d.USD_INR
 ); })
 
+              // Defining Pound_INR  mini line
             var mini_line1 = d3.svg.line()
                 .x(function(d) { return mini_x(d.Date); })
                 .y(function(d) { return mini_y1(d.Pound_INR
 ); });
 
+              // Defining Euro_INR  mini line
             var mini_line2 = d3.svg.line()
                 .x(function(d) { return mini_x(d.Date); })
                 .y(function(d) { return mini_y0(d.Euro_INR
