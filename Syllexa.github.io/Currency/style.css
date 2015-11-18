@@ -37,6 +37,10 @@ body {
   stroke: indianred;
 }
 
+.line.line2 {
+  stroke: black;
+}
+
 .overlay {
   fill: none;
   pointer-events: all;
@@ -54,6 +58,10 @@ body {
   stroke: red;
 }
 
+.focus circle.y2{
+  stroke: black;
+}
+
 .focus line {
   stroke: purple;
   shape-rendering: crispEdges;
@@ -67,6 +75,12 @@ body {
 
 .focus line.y1 {
   stroke: indianred;
+  stroke-dasharray: 3 3;
+  opacity: .5;
+}
+
+.focus line.y2 {
+  stroke: black;
   stroke-dasharray: 3 3;
   opacity: .5;
 }
