@@ -1,13 +1,20 @@
 body {
   font: 10px sans-serif;
+  background-color: #151512;;
+  color: #FFF;
+}
+
+text {
+    fill: white;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: #FFF;
   shape-rendering: crispEdges;
 }
+
 
 .chart-class {
   position: fixed;
@@ -24,7 +31,7 @@ body {
 
 
 .line {
-  stroke: black;
+  stroke: #FFF;
   fill: none;
   stroke-width: 0.75px;
 }
@@ -63,9 +70,11 @@ body {
 }
 
 .focus line {
-  stroke: purple;
-  shape-rendering: crispEdges;
+  stroke: white;
+  stroke-dasharray: 3 3;
+  opacity: .5;
 }
+
 
 .focus line.y0 {
   stroke: steelblue;
@@ -86,7 +95,8 @@ body {
 }
 
 .brush .extent {
-  stroke: #fff;
+  stroke: orange;
+  fill: orange;
   fill-opacity: .125;
   shape-rendering: crispEdges;
 }
