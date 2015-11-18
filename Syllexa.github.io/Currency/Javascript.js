@@ -285,13 +285,13 @@
                 focus.select("circle.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Pound_INR) + ")");
                 focus.select("text.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Pound_INR) + ")").text(formatOutput1(d));
                 
-                focus.select("circle.y2").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Euro_INR) + ")");
-                focus.select("text.y2").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Euro_INR) + ")").text(formatOutput2(d));
+                focus.select("circle.y2").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Euro_INR) + ")");
+                focus.select("text.y2").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Euro_INR) + ")").text(formatOutput2(d));
 
                 focus.select(".x").attr("transform", "translate(" + main_x(d.Date) + ",0)");
                 focus.select(".y0").attr("transform", "translate(" + main_width * -1 + ", " + main_y0(d.USD_INR) + ")").attr("x2", main_width + main_x(d.Date));
                 focus.select(".y1").attr("transform", "translate(0, " + main_y1(d.Pound_INR) + ")").attr("x1", main_x(d.Date));
-                focus.select(".y2").attr("transform", "translate(0, " + main_y0(d.Euro_INR) + ")").attr("x2", main_x(d.Date));                
+                focus.select(".y1").attr("transform", "translate(0, " + main_y0(d.Euro_INR) + ")").attr("x2", main_x(d.Date));                
               }
             });
 
