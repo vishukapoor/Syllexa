@@ -151,15 +151,7 @@
                   .attr("dy", ".71em")
                   .style("text-anchor", "end")
                   .text("Sensex");
-                  
-          svg.append("text")
-              .attr("x", (width / 2))             
-              .attr("y", 0 - (margin.top / 2))
-              .attr("text-anchor", "middle")  
-              .style("font-size", "16px") 
-              .style("text-decoration", "underline")  
-              .text("Market Movement");        
-
+        
               mini.append("g")
                   .attr("class", "x axis")
                   .attr("transform", "translate(0," + mini_height + ")")
@@ -223,6 +215,16 @@
               focus.append("text")
                   .attr("class", "y1")
                   .attr("dy", "-1em");
+
+          
+          svg.append("text")
+              .attr("x", (width / 2))             
+              .attr("y", 0 - (margin.top / 2))
+              .attr("text-anchor", "middle")  
+              .style("font-size", "16px") 
+              .style("text-decoration", "underline")  
+              .text("Market Movement");        
+
 
             // The rectangle for slider
               main.append("rect")
