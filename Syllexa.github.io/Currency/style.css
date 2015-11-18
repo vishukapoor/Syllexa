@@ -1,6 +1,6 @@
 body {
   font: 10px sans-serif;
-  background-color: #151512;;
+  background-color: #FFF;;
   color: #FFF;
 }
 
@@ -25,6 +25,7 @@ h1 {
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
+  background-color: #151512;;
 }
 
 
