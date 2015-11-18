@@ -105,6 +105,12 @@
 
             var main = svg.append("g")
                 .attr("transform", "translate(" + main_margin.left + "," + main_margin.top + ")");
+                    svg.append("text")
+                  .attr("class", "title")
+                  .attr("x", width/2)
+                  .attr("y", 0 - (margin.top / 2))
+                  .attr("text-anchor", "middle")
+                  .text("Currency");    
 
             var mini = svg.append("g")
                 .attr("transform", "translate(" + mini_margin.left + "," + mini_margin.top + ")");
