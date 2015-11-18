@@ -101,6 +101,7 @@
                               .append("rect")
                               .attr("width", main_width)
                               .attr("height", main_height);
+                              .attr("fill", "#151512");
 
             var main = svg.append("g")
                 .attr("transform", "translate(" + main_margin.left + "," + main_margin.top + ")");
