@@ -1,11 +1,14 @@
 body {
   font: 10px sans-serif;
+<<<<<<< HEAD
   background-color: #FFF;;
   color: #FFF;
 }
 
 text {
     fill: white;
+=======
+>>>>>>> parent of 10ec1cc... Style Change
 }
 h1 {
   text-transform: uppercase;
@@ -14,10 +17,9 @@ h1 {
 .axis path,
 .axis line {
   fill: none;
-  stroke: #FFF;
+  stroke: #000;
   shape-rendering: crispEdges;
 }
-
 
 .chart-class {
   position: fixed;
@@ -35,7 +37,7 @@ h1 {
 
 
 .line {
-  stroke: #FFF;
+  stroke: black;
   fill: none;
   stroke-width: 0.75px;
 }
@@ -74,11 +76,9 @@ h1 {
 }
 
 .focus line {
-  stroke: white;
-  stroke-dasharray: 3 3;
-  opacity: .5;
+  stroke: purple;
+  shape-rendering: crispEdges;
 }
-
 
 .focus line.y0 {
   stroke: steelblue;
@@ -99,8 +99,7 @@ h1 {
 }
 
 .brush .extent {
-  stroke: orange;
-  fill: orange;
+  stroke: #fff;
   fill-opacity: .125;
   shape-rendering: crispEdges;
 }
