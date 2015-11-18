@@ -151,6 +151,14 @@
                   .attr("dy", ".71em")
                   .style("text-anchor", "end")
                   .text("Sensex");
+                  
+          svg.append("text")
+              .attr("x", (width / 2))             
+              .attr("y", 0 - (margin.top / 2))
+              .attr("text-anchor", "middle")  
+              .style("font-size", "16px") 
+              .style("text-decoration", "underline")  
+              .text("Market Movement");        
 
               mini.append("g")
                   .attr("class", "x axis")
