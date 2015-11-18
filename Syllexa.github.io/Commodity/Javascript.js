@@ -34,10 +34,6 @@
                 .scale(main_x)
                 .tickFormat(d3.time.format("%d-%m-%Y"))
                 .orient("bottom"),
-                mini_xAxis = d3.svg.axis() //this is for slider
-                .scale(mini_x)
-                .tickFormat(d3.time.format("%d-%m-%Y"))
-                .orient("bottom");
 
             var main_yAxisLeft = d3.svg.axis()
                 .scale(main_y0)
