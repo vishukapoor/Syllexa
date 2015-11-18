@@ -1,4 +1,5 @@
-d3.csv("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Economic-Calendar/Economic-Calender.csv", function(error, data) {
+d3.csv("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Economic%20Calendar/Economic%20Calender.csv", function(error, data) {
+	
 		  if (error) throw error;
 		  
 		  var sortAscending = true;
