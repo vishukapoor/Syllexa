@@ -107,8 +107,8 @@
                 .attr("transform", "translate(" + main_margin.left + "," + main_margin.top + ")");
                     svg.append("text")
                   .attr("class", "title")
-                  .attr("x", width/2)
-                  .attr("y", 0 - (margin.top / 2))
+                  .attr("x", main_width/2)
+                  .attr("y", 0 - (main_margin.top / 2))
                   .attr("text-anchor", "middle")
                   .text("Currency");    
 
