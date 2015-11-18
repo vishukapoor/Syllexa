@@ -1,4 +1,4 @@
-d3.csv("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Weekly-Looser/data.csv", function(error, data) {
+d3.csv("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Weekly%20Looser/data.csv", function(error, data) {
 		  if (error) throw error;
 		  
 		  var sortAscending = true;
