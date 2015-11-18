@@ -1,13 +1,20 @@
 body {
   font: 10px sans-serif;
+  background-color: #151512;;
+  color: #FFF;
+}
+
+text {
+    fill: white;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: #FFF;
   shape-rendering: crispEdges;
 }
+
 
 .chart-class {
   position: fixed;
@@ -24,7 +31,7 @@ body {
 
 
 .line {
-  stroke: black;
+  stroke: #FFF;
   fill: none;
   stroke-width: 0.75px;
 }
@@ -35,6 +42,10 @@ body {
 
 .line.line1 {
   stroke: indianred;
+}
+
+.line.line2 {
+  stroke: black;
 }
 
 .overlay {
@@ -54,10 +65,16 @@ body {
   stroke: red;
 }
 
-.focus line {
-  stroke: purple;
-  shape-rendering: crispEdges;
+.focus circle.y2{
+  stroke: black;
 }
+
+.focus line {
+  stroke: white;
+  stroke-dasharray: 3 3;
+  opacity: .5;
+}
+
 
 .focus line.y0 {
   stroke: steelblue;
@@ -71,8 +88,15 @@ body {
   opacity: .5;
 }
 
+.focus line.y2 {
+  stroke: black;
+  stroke-dasharray: 3 3;
+  opacity: .5;
+}
+
 .brush .extent {
-  stroke: #fff;
+  stroke: orange;
+  fill: orange;
   fill-opacity: .125;
   shape-rendering: crispEdges;
 }
