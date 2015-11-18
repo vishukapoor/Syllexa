@@ -12,7 +12,7 @@
                 bisectDate = d3.bisector(function(d) { return d.Date; }).left, 
                 formatOutput0 = function(d) { return formatDate(d.Date) + " - " + d.USD_INR; }, 
                 formatOutput1 = function(d) { return formatDate(d.Date) + " - " + d.Pound_INR; };
-                formatOutput1 = function(d) { return formatDate(d.Date) + " - " + d.Euro_INR; };
+                formatOutput2 = function(d) { return formatDate(d.Date) + " - " + d.Euro_INR; };
 
             // Set the ranges for x 
             var main_x = d3.time.scale()
