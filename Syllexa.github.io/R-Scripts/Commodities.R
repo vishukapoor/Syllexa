@@ -45,7 +45,7 @@ Commodity<- function(){
     if(a==1){Gold_Data=Month_Data}
     else(Gold_Data<- c(Gold_Data,Month_Data))
     
-    print(a)
+
   }  
   
   Gold_Data<- unlist(Gold_Data)
@@ -58,7 +58,7 @@ Commodity<- function(){
   colnames(Gold)<- "Date"
   Gold$Data<- Gold_Data
   
-  Oil<- read.xls("http://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls",sheet = 2,pattern = "Date",verbose = T)
+  Oil<- read.xls("http://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls",sheet = 2,pattern = "Date")
   Oil$Date<- as.Date(as.character(Oil$Date),format = "%b %d, %Y")
   colnames(Oil)[2]<- "Prices"
   

@@ -31,6 +31,4 @@ name<-paste("C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\We
 
 write.csv(Weekly_Gainer,name)
 
-return(Weekly_Gainer)
-
 }
