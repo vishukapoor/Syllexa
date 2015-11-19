@@ -29,6 +29,10 @@ body {
   stroke: indianred;
 }
 
+.line.line2 {
+  stroke: Yellow;
+}
+
 .overlay {
   fill: none;
   pointer-events: all;
@@ -44,6 +48,10 @@ body {
 
 .focus circle.y1 {
   stroke: red;
+}
+
+.focus circle.y2 {
+  stroke: Yellow;
 }
 
 .focus line {
@@ -63,8 +71,14 @@ body {
   opacity: .5;
 }
 
+.focus line.y2 {
+  stroke: Yellow;
+  stroke-dasharray: 3 3;
+  opacity: .5;
+}
+
 .brush .extent {
-  stroke: #fff;
+  stroke: Orange;
   fill-opacity: .125;
   shape-rendering: crispEdges;
 }
