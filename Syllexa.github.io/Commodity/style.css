@@ -2,6 +2,11 @@ body {
   font: 10px sans-serif;
 }
 
+h1 {
+    text-align: center;
+
+}
+
 .axis path,
 .axis line {
   fill: none;
@@ -20,6 +25,7 @@ body {
   fill: none;
   stroke-width: 0.75px;
 }
+
 
 .line.line0 {
   stroke: steelblue;

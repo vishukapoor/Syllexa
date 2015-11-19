@@ -1,6 +1,10 @@
 body {
   font: 10px sans-serif;
 }
+h1 {
+    text-align: center;
+
+}
 
 .axis path,
 .axis line {
