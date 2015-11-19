@@ -58,17 +58,17 @@ h1 {
 .focus line.y0 {
   stroke: steelblue;
   stroke-dasharray: 3 3;
-  opacity: .5;
+  opacity: .8;
 }
 
 .focus line.y1 {
   stroke: indianred;
   stroke-dasharray: 3 3;
-  opacity: .5;
+  opacity: .8;
 }
 
 .brush .extent {
-  stroke: #fff;
+  stroke: orange;
   fill-opacity: .125;
   shape-rendering: crispEdges;
 }
