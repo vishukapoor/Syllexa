@@ -261,8 +261,7 @@ function defaultBrush(data,start,end){
     main_x.domain([data[start].Date,data[end].Date]);
     main.select(".line0").attr("d", main_line0);
 
-    main.select(".x.axis").call(mai
-      n_xAxis);
+    main.select(".x.axis").call(main_xAxis);
 
 }
 function brushMove() {
