@@ -1,3 +1,5 @@
+Loser<- function(){
+
 library(XML) 
 library(DT)
 library(htmltools)  
@@ -16,8 +18,6 @@ Losers<- Losers[-1,]
 
 colnames(Losers)<- gsub("common.table.","",colnames(Losers)) 
 
-name<-paste("CNX Top Loser's",Sys.Date(),sep = "-")
-name<- paste(name,".csv",sep = "")
+write.csv(Losers,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Weekly Looser\\data.csv")
 
-datatable(Losers, class = 'table-bordered table-condensed',options = list(pageLength = 15),caption = "Weekly Top Loosers",selection = "multiple selection")
-
+}

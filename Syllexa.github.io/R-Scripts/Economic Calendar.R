@@ -1,6 +1,5 @@
 News<- function(time_Frame="nextWeek"){
   
-  library(htmltools)  
   library(XML) 
   
   #Main Website url
@@ -172,13 +171,11 @@ News<- function(time_Frame="nextWeek"){
   
   NEWS<- subset(NEWS,NEWS$Volatilty!="Low Volatility Expected")
   
-  name<- paste("Economic Calender",Sys.Date(),sep = " ")
+  
+  name<- paste("C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Economic Calendar","Economic Calender",sep ="//")
+  
   name<- paste(name,".csv",sep = "")
   
-  Week<- paste(format(DateFrom,"%d"),format(DateTo,"%d %b"),sep = "-")
-  
-  Economic_Calender<- paste("Economic Calenedar",Week,sep = " for ")
-  
-  
   write.csv(NEWS,name)
-}
+
+  }

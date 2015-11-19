@@ -1,0 +1,13 @@
+Caledar<- dget("C:\\Users\\Vishu\\OneDrive\\Weekly Digest\\HTML\\R scripts\\Economic Calendar.R")
+Top_Gainer<- dget("C:\\Users\\Vishu\\OneDrive\\Weekly Digest\\HTML\\R scripts\\Top Gainers Of the week.R")
+Top_Loosers<-dget("C:\\Users\\Vishu\\OneDrive\\Weekly Digest\\HTML\\R scripts\\top weekly loosers.R")
+Currency<-dget("C:\\Users\\Vishu\\OneDrive\\Weekly Digest\\HTML\\R scripts\\Currency.R")
+Commodity<-dget("C:\\Users\\Vishu\\OneDrive\\Weekly Digest\\HTML\\R scripts\\Commodities.R")
+Market<- dget("C:\\Users\\Vishu\\OneDrive\\Weekly Digest\\HTML\\R scripts\\Market.R")
+
+Caledar()
+Top_Gainer()
+Top_Loosers()
+Currency()
+Commodity()
+Market()

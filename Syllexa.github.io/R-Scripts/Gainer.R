@@ -1,13 +1,7 @@
 Gainer<-function(){
 
-setwd("C:\\Users\\Vishu\\OneDrive\\Weekly Digest\\Gainers csv")
 library(XML) 
-library(rvest)
-library(RCurl)
-library(httr)
-library(DT)
-  library(htmltools)
-  
+
 investing_url<-"http://profit.ndtv.com/market/stocks-gainers/nifty_weekly"
 
 doc <- readLines(url(investing_url))
@@ -33,12 +27,7 @@ Weekly_Gainer<- as.data.frame(matrix(0,length(Change),0))
 Weekly_Gainer$Stock<- Stock
 Weekly_Gainer$Change<- Change
 
-name<-paste("Gainer",Sys.Date(),sep = "-")
-name<- paste(name,".csv",sep = "")
-
-Table<-datatable(Weekly_Gainer, class = 'table-bordered table-condensed',options = list(pageLength = 15),caption = "Weekly Top Gainers",selection = "multiple selection")
-
-save_html(Table,"C:\\Users\\Vishu\\OneDrive\\Weekly Digest\\HTML\\Web Files\\Top Gainers.html")
+name<-paste("C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Weekly Gainer","data.csv",sep = "\\")
 
 write.csv(Weekly_Gainer,name)
 
