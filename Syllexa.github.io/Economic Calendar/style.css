@@ -4,7 +4,11 @@
      }
      body { 
 	   font: 14px/1.4 Georgia, Serif; 
+		
      }
+	#canvas {
+	position: fixed
+}	
     #page-wrap {
 	  margin: 50px;
     }
