@@ -1,10 +1,10 @@
               // Set the dimensions of the canvas / graph
             // Main is for charts and mini is for slider which would be below the chart
-            var main_margin = {top: 20, right: 80, bottom: 100, left: 40},
-                mini_margin = {top: 430, right: 80, bottom: 20, left: 40},
-                main_width = 960 - main_margin.left - main_margin.right,
-                main_height = 500 - main_margin.top - main_margin.bottom,
-                mini_height = 500 - mini_margin.top - mini_margin.bottom;
+ //           var main_margin = {top: 20, right: 80, bottom: 100, left: 40},
+   //             mini_margin = {top: 430, right: 80, bottom: 20, left: 40},
+     //           main_width = 960 - main_margin.left - main_margin.right,
+       //         main_height = 500 - main_margin.top - main_margin.bottom,
+         //       mini_height = 500 - mini_margin.top - mini_margin.bottom;
             
             var main_margin = {top: 20, right: 80, bottom: 100, left: 40},
                 mini_margin = {top: 430, right: 80, bottom: 20, left: 40},
