@@ -5,6 +5,13 @@
                 main_width = 960 - main_margin.left - main_margin.right,
                 main_height = 500 - main_margin.top - main_margin.bottom,
                 mini_height = 500 - mini_margin.top - mini_margin.bottom;
+            
+            var main_margin = {top: 20, right: 80, bottom: 100, left: 40},
+                mini_margin = {top: 430, right: 80, bottom: 20, left: 40},
+              ww = document.getElementById("chart").clientWidth,
+              main_width = ww - main_margin.left - main_margin.right,
+              main_height = 500 - main_margin.top - main_margin.bottom;                
+              mini_height = 500 - mini_margin.top - mini_margin.bottom;                
 
             // Parse the date / time
             var formatDate = d3.time.format("%d-%m-%Y"), 
@@ -91,10 +98,10 @@
 
 
             // Adds the svg canvas
-            var svg = d3.select("body")
+            var svg = d3.select("#chart")
                               .append("svg")
-                              .attr("width", main_width + main_margin.left + main_margin.right)
-                              .attr("height", main_height + main_margin.top + main_margin.bottom)
+                              .attr("width", '100%')
+                              .attr("height", '100%')
 
                               svg.append("defs").append("clipPath")
                               .attr("id", "clip")
