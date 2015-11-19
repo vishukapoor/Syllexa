@@ -1,13 +1,11 @@
 Commodity<- function(){
 
-  library(dygraphs)
-  library(xts)
+  
   library(XML) #Loading XML package
   library(gdata)
-  library(htmltools)
-  library(rjson)
-  
-  
+
+  setwd("C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Commodity")
+    
   url<-"http://www.goldpriceindia.com/gold-price-history.php"
 
   url1<-"http://www.goldpriceindia.com/" 
@@ -66,7 +64,7 @@ Commodity<- function(){
   
   Oil<- subset(Oil,Oil$Prices!=".")
   
-  Oil<- Oil[format(Oil$Date,"%Y")==2015,]
+  Oil<- Oil[format(Oil$Date,"%Y")==format(Sys.Date(),"%Y"),]
   
   Gold<- Gold[order(Gold$Date),]
   Gold<- Gold[Gold$Date %in% Oil$Date,]
@@ -75,8 +73,9 @@ Commodity<- function(){
   
   Commodity<- Commodity[,!(duplicated(colnames(Commodity)))]
   
-  Commodity_JSON<-toJSON(Commodity)
+  colnames(Commodity) <- c("Date","Gold","Oil")
   
-  write(Commodity_JSON,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Chart\\Commodity\\Commodity.json")  
+  
+  write.csv(Commodity,"data.csv")  
   
   }
