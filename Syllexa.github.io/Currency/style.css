@@ -43,11 +43,11 @@ body {
 }
 
 .focus circle.y0 {
-  stroke: blue;
+  stroke: steelblue;
 }
 
 .focus circle.y1 {
-  stroke: red;
+  stroke: indianred;
 }
 
 .focus circle.y2 {
