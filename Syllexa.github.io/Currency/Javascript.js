@@ -100,8 +100,8 @@
             // Adds the svg canvas
             var svg = d3.select("#chart")
                               .append("svg")
-                              .attr("width", '100%')
-                              .attr("height", '100%')
+                              .attr("width", main_width + main_margin.left + main_margin.right)
+                              .attr("height", main_height + main_margin.top + main_margin.bottom)
 
                               svg.append("defs").append("clipPath")
                               .attr("id", "clip")
