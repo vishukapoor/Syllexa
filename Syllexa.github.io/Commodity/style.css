@@ -1,46 +1,22 @@
 body {
-	background-image: url("https://cloud.githubusercontent.com/assets/15011101/11206207/66c1cb78-8d33-11e5-92ab-a1b0562aee82.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	left: 0;
-	margin: 0;
-	overflow: hidden;
-	position: relative;
-}
-
-#chart{
-  background-color: #151512;;
-  color: #FFF;
-}
-
-text {
-    fill: white;
+  font: 10px sans-serif;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #FFF;
+  stroke: #000;
   shape-rendering: crispEdges;
 }
 
-
-.chart-class {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
-
-
+/*
 .x.axis path {
   display: none;
 }
-
+*/
 
 .line {
-  stroke: #FFF;
+  stroke: black;
   fill: none;
   stroke-width: 0.75px;
 }
@@ -51,10 +27,6 @@ text {
 
 .line.line1 {
   stroke: indianred;
-}
-
-.line.line2 {
-  stroke: black;
 }
 
 .overlay {
@@ -74,16 +46,10 @@ text {
   stroke: red;
 }
 
-.focus circle.y2{
-  stroke: black;
-}
-
 .focus line {
-  stroke: white;
-  stroke-dasharray: 3 3;
-  opacity: .5;
+  stroke: purple;
+  shape-rendering: crispEdges;
 }
-
 
 .focus line.y0 {
   stroke: steelblue;
@@ -97,15 +63,8 @@ text {
   opacity: .5;
 }
 
-.focus line.y2 {
-  stroke: black;
-  stroke-dasharray: 3 3;
-  opacity: .5;
-}
-
 .brush .extent {
-  stroke: orange;
-  fill: orange;
+  stroke: #fff;
   fill-opacity: .125;
   shape-rendering: crispEdges;
 }
