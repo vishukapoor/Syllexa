@@ -169,8 +169,6 @@ News<- function(time_Frame="nextWeek"){
   NEWS$NEWS<-NULL
   NEWS$Link<- NULL
   
-  NEWS<- subset(NEWS,NEWS$Volatilty!="Low Volatility Expected")
-  
   
   name<- paste("C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Economic Calendar","Economic Calender",sep ="//")
   
