@@ -1,13 +1,3 @@
-/* Initial body */
-body {
-	background-image: url("https://cloud.githubusercontent.com/assets/15011101/11301524/ded9bf80-8fbd-11e5-81b4-d63787f2d59e.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	left: 0;
-	margin: 0;
-	overflow: hidden;
-	position: relative;
-}
 
 /* Initial menu */
 .menu {
