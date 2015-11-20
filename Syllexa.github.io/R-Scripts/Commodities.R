@@ -67,6 +67,7 @@ Commodity<- function(){
   Oil<- Oil[format(Oil$Date,"%Y")==format(Sys.Date(),"%Y"),]
   
   Gold<- Gold[order(Gold$Date),]
+  
   Gold<- Gold[Gold$Date %in% Oil$Date,]
   
   Commodity<- cbind(Gold,Oil)
@@ -76,6 +77,6 @@ Commodity<- function(){
   colnames(Commodity) <- c("Date","Gold","Oil")
   
   
-  write.csv(Commodity,"data.csv")  
+  write.csv(Commodity,"data.csv",row.names = F)  
   
   }
