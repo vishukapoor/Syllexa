@@ -58,13 +58,15 @@ Commodity<- function(){
   colnames(Gold)<- "Date"
   Gold$Data<- Gold_Data
   
-  Oil<- read.xls("http://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls",sheet = 2,pattern = "Date")
+  Oil<- read.xls("http://www.eia.gov/dnav/pet/xls/PET_PRI_FUT_S1_D.xls",sheet = 2,pattern = "Date")
   Oil$Date<- as.Date(as.character(Oil$Date),format = "%b %d, %Y")
   colnames(Oil)[2]<- "Prices"
   
   Oil<- subset(Oil,Oil$Prices!=".")
   
   Oil<- Oil[format(Oil$Date,"%Y")==format(Sys.Date(),"%Y"),]
+  
+  Oil<-Oil[,c(1,2)] 
   
   Gold<- Gold[order(Gold$Date),]
   

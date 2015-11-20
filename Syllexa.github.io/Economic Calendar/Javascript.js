@@ -16,7 +16,7 @@ d3.csv("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Econom
 		                	   headers.attr('class', 'header');
 		                	   
 		                	   if (sortAscending) {
-		                	     rows.sort(function(a, b) { return b[d] < a[d]; });
+		                	     rows.sort(function(a, b) { return b[d] - a[d]; });
 		                	     sortAscending = false;
 		                	     this.className = 'aes';
 		                	   } else {
