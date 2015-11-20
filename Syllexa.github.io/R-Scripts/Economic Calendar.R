@@ -174,6 +174,6 @@ News<- function(time_Frame="nextWeek"){
   
   name<- paste(name,".csv",sep = "")
   
-  write.csv(NEWS,name)
+  write.csv(NEWS,name,row.names = F)
 
   }

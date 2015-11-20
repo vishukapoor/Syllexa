@@ -1,10 +1,3 @@
-# Function to download stock & index prices from Google Finance.
-# Arg. ticker is BSE numeric code for company listed on BSE and alpha-numeric code if listed on NSE.
-# Refer to file "listOfScrips.csv" for details.
-# interval specifies the time interval for each datapoint in seconds. Defaults to 86400 seconds (1 Day/ Daily data).
-# TimeFrame refers to the lookback duration of data to be pulled. A string where "10Y" (10 Years) is the default. Other examples are "10d" & "10M"
-# output is a data frame with columns Date, OHLC and Volume.
-
 download_prices <- function(ticker = ".NSEI", exchange = "NSE", interval = 86400, TimeFrame = "10Y"){
 
       url = paste("http://www.google.com/finance/getprices?q", paste(ticker, "x", sep = "&"), paste(exchange, "i", sep = "&"), paste(interval, "p", sep = "&"), 
@@ -12,7 +5,6 @@ download_prices <- function(ticker = ".NSEI", exchange = "NSE", interval = 86400
       #print(url)
       
       stock = readLines(url)
-      message("Imported data from URL in raw format")
       
       colnames_row = strsplit(stock[5], split = ",")
       
@@ -25,7 +17,7 @@ download_prices <- function(ticker = ".NSEI", exchange = "NSE", interval = 86400
       
       rows = length(stock)
       
-      message("Creating data table from raw data...")
+      
       for(i in 8:rows){
         
         elements = strsplit(x = stock[i], split = ",")
@@ -38,7 +30,6 @@ download_prices <- function(ticker = ".NSEI", exchange = "NSE", interval = 86400
       }
       
       stock_prices = stock_prices[-(1:7),]
-      message("Created data table")
       
       new_dates = grep(pattern = "a", x = stock_prices$DATE, value = F)
       new_dates_values = grep(pattern = "a", x = stock_prices$DATE, value = T)
@@ -47,7 +38,6 @@ download_prices <- function(ticker = ".NSEI", exchange = "NSE", interval = 86400
       stock_prices$DATE_two = 0
       stock_prices$DATE_two[1] = stock_prices$DATE[new_dates[1]]
       
-      message("Converting Dates into POSIX format from epoch...")
       if(length(new_dates) >= 2){
       for(i in 2:length(new_dates)){
         
@@ -82,8 +72,7 @@ download_prices <- function(ticker = ".NSEI", exchange = "NSE", interval = 86400
       }else{
         stock_prices$DATE = as.POSIXct(as.numeric(stock_prices$DATE), tz = "", origin = "1970-01-01")
       }
-      message("Converted Dates from epoch to POSIX")
-      
+
       stock_prices$CLOSE = as.numeric(stock_prices$CLOSE)
       stock_prices$HIGH = as.numeric(stock_prices$HIGH)
       stock_prices$LOW = as.numeric(stock_prices$LOW)

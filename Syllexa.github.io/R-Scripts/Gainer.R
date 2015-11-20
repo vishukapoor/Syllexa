@@ -29,6 +29,6 @@ Weekly_Gainer$Change<- Change
 
 name<-paste("C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Weekly Gainer","data.csv",sep = "\\")
 
-write.csv(Weekly_Gainer,name)
+write.csv(Weekly_Gainer,name,row.names = F)
 
 }

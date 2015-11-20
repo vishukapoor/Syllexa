@@ -2,7 +2,7 @@ Currency<- function(){
     
   
 
-  Function<-dget(file = "https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/R-Scripts/GoogFin.R")
+  Function<-dget(file = "https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/R-Scripts/GoogFin.R")
   
   USD_INR<- Function(ticker = "USDINR",exchange = "",TimeFrame = "1Y")
   colnames(USD_INR)[5]<- "USD_INR"
@@ -17,5 +17,5 @@ Currency<- function(){
   
   Currency<- Currency[,c("Date","USD_INR","Pound_INR","Euro_INR")]
   
-  write.csv(Currency,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Currency\\Currency.csv")
+  write.csv(Currency,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Currency\\Currency.csv",row.names = F)
 }

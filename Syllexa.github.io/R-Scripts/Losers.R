@@ -18,6 +18,6 @@ Losers<- Losers[-1,]
 
 colnames(Losers)<- gsub("common.table.","",colnames(Losers)) 
 
-write.csv(Losers,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Weekly Looser\\data.csv")
+write.csv(Losers,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Weekly Looser\\data.csv",row.names = F)
 
 }

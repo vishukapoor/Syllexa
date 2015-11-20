@@ -2,7 +2,7 @@ Market_Graphing<- function(){
   
     
     
-  Stock<-dget(file = "https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/R-Scripts/GoogFin.R")
+  Stock<-dget(file = "https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/R-Scripts/GoogFin.R")
   
   Nifty<- Stock(TimeFrame = "1Y")
   Nifty$Name<-"Nifty"
