@@ -12,12 +12,12 @@ body {
 /* Initial menu */
 .menu {
   background: url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/black-thread.png') repeat left top;
-	colour:#202024
+
   left: -285px;  /* start off behind the scenes */
   height: 100%;
   position: fixed;
   width: 285px;
-	color: #aa81c5;	
+	color: #0F4989;	
 }
 
 /* Basic styling */
