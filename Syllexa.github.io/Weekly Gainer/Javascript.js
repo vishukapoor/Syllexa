@@ -2,14 +2,12 @@ d3.csv("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Weekly
 		  if (error) throw error;
 		  
 		  var sortAscending = true;
-		  var table = d3.select('#page-wrap').append('table').append("Weekly-Gainer");
+		  var table = d3.select('#page-wrap').append('table');
 		  var titles = d3.keys(data[0]);
 		  var headers = table.append('thead').append('tr')
 		                   .selectAll('th')
 		                   .data(titles).enter()
 		                   .append('th')
-		                   .on("mouseover", function mouseover(p) {
-  								  $("#Weekly-Gainer").tablesorter()   })
 		                   .text(function (d) {
 			                    return d;
 		                    })
