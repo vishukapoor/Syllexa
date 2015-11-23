@@ -1,11 +1,10 @@
               // Set the dimensions of the canvas / graph
-              window.onload=function() {
+
             var main_margin = {top: 20, right: 80, bottom: 100, left: 40},
-                mini_margin = {top: 430, right: 80, bottom: 20, left: 40},
-                ww = document.getElementById("chart").clientWidth,
-                main_width = ww - main_margin.left - main_margin.right,
-                main_height = 500 - main_margin.top - main_margin.bottom;                
-                mini_height = 500 - mini_margin.top - mini_margin.bottom;                
+              mini_margin = {top: 430, right: 80, bottom: 20, left: 40},
+              main_width = 960 - main_margin.left - main_margin.right,
+              main_height = 500 - main_margin.top - main_margin.bottom,
+                mini_height = 500 - mini_margin.top - mini_margin.bottom;
 
             // Parse the date / time
             var formatDate = d3.time.format("%d-%m-%Y"), 
@@ -249,4 +248,3 @@
               main.select(".line1").attr("d", main_line1);
               main.select(".x.axis").call(main_xAxis);
             }
-}
