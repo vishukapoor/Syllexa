@@ -34,7 +34,7 @@ h1 {
 }
 
 .line.line2 {
-  stroke: Yellow;
+  stroke: Green;
 }
 
 .overlay {
@@ -55,7 +55,7 @@ h1 {
 }
 
 .focus circle.y2 {
-  stroke: Yellow;
+  stroke: Green;
 }
 
 .focus line {
@@ -76,7 +76,7 @@ h1 {
 }
 
 .focus line.y2 {
-  stroke: Yellow;
+  stroke: Green;
   stroke-dasharray: 3 3;
   opacity: .8;
 }
