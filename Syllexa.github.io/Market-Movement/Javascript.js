@@ -91,7 +91,7 @@
 
 
             // Get the data
-            d3.csv("https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/data.csv", function(error, data) {
+            d3.csv("https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/data.csv", function(error, data) {
               data.forEach(function(d) {
                 d.Date = parseDate(d.Date);
                 d.Nifty = +d.Nifty;
