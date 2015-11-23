@@ -7,6 +7,8 @@
                 main_height = 500 - main_margin.top - main_margin.bottom;                
                 mini_height = 500 - mini_margin.top - mini_margin.bottom;                
 
+
+
             // Parse the date / time
             var formatDate = d3.time.format("%d-%m-%Y"), 
                 parseDate = formatDate.parse,
@@ -244,7 +246,7 @@
             });
 
             function brush() {
-              main_x.domain(brush.empty() ? mini_x.domain() : brush.extent());
+              main_x.domain(brush.empty() ? mini_x.domain() : brush.extent([0.2,0.8]));
               main.select(".line0").attr("d", main_line0);
               main.select(".line1").attr("d", main_line1);
               main.select(".x.axis").call(main_xAxis);
