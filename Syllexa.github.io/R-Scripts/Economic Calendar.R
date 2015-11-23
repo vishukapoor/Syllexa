@@ -174,6 +174,8 @@ News<- function(time_Frame="nextWeek"){
   
   name<- paste(name,".csv",sep = "")
   
+  NEWS<- subset(NEWS,NEWS$News!="Investing.com")
+  
   write.csv(NEWS,name,row.names = F)
 
   }
