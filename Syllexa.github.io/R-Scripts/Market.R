@@ -14,7 +14,7 @@ Market_Graphing<- function(){
   
   Data<- Data[,c("Date","Nifty","Sensex")]
   
-  write.csv(Data,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Market-Movement\\data.csv")
+  write.csv(Data,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Market-Movement\\data.csv",row.names = F)
   
   }
 
