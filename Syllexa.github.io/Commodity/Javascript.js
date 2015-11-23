@@ -10,7 +10,7 @@
 
 
             // Parse the date / time
-            var formatDate = d3.time.format("%d-%m-%Y"), 
+            var formatDate = d3.time.format("%Y-%m-%d"), 
                 parseDate = formatDate.parse,
                 bisectDate = d3.bisector(function(d) { return d.Date; }).left, 
                 formatOutput0 = function(d) { return formatDate(d.Date) + " - " + d.Oil; }, 
