@@ -66,8 +66,7 @@ img {
   padding-bottom: 25px;
   padding-left: 50%;
   padding-top: 25px;
-	width:15%;
-	height:15% ;
-	align:center;
-	
-}
+  position: absolute;
+    top: 50%;
+    left: 50%;
+transform: translate(-50%, -50%);}

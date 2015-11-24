@@ -23,4 +23,4 @@ var main = function() {
 };
 
 
-$(document).ready(main);
+$(docu  ment).ready(main);
