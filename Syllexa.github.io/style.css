@@ -62,11 +62,3 @@
 	
 }
 
-img {
-   position: absolute;
-   left: 50%;
-   width: 15%;
-   height: 15%;
-   margin-top: -250px; /* Half the height */
-   margin-left: -250px; /* Half the width */
-}
