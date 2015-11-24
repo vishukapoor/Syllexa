@@ -1,7 +1,7 @@
 
 /* Initial menu */
 .menu {
-  background: url('https://cloud.githubusercontent.com/assets/15011101/11368713/46b3b608-92e1-11e5-8ba4-328d2fd5d825.png') repeat left top;
+  background: url('https://cloud.githubusercontent.com/assets/15011101/11368139/086f87f8-92de-11e5-8bc1-b6540155ac9c.png') repeat left top;
 
   left: -285px;  /* start off behind the scenes */
   height: 100%;
@@ -50,7 +50,7 @@
 }
 
 .icon-menu {
-  color: #0f4989;
+  color: #0F4989;
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
