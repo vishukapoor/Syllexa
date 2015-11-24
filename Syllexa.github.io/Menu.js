@@ -11,7 +11,7 @@ var main = function() {
   });
 
   /* Then push them back */
-  $('.body').mouseover(function() {
+  $('body').mouseover(function() {
     $('.menu').animate({
       left: "-285px"
     }, 400);
