@@ -223,7 +223,7 @@
               focus.append("text")
                   .attr("class", "y1")
                   .attr("dy", "-1em");
-//Added Legend
+
               legend.append("circle")
               .attr("cy",function(d,i){
                 return i*30
@@ -234,7 +234,7 @@
                 } else {
                   return radius
                 }
-              });
+              })
               .attr("fill" function(d){
                 if(d=="Sensex"){
                   return 'red'
