@@ -90,12 +90,6 @@
             var mini = svg.append("g")
                 .attr("transform", "translate(" + mini_margin.left + "," + mini_margin.top + ")");
 
-            var legend = svg.append("g")
-                    .attr("class","legend")
-                    .attr("transform","translate(" + (width - 100) + "," + 20 + ")")
-                    .selectAll("g")
-                    .data(["Sensex","Nifty"])
-                    .enter().append("g");
 
             // Get the data
             d3.csv("https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/data.csv", function(error, data) {
@@ -223,33 +217,6 @@
               focus.append("text")
                   .attr("class", "y1")
                   .attr("dy", "-1em");
-
-              legend.append("circle")
-              .attr("cy",function(d,i){
-                return i*30
-              })    
-              .attr("r",  function(d){
-                if (d=="Sensex"){
-                  return radius * multiplier;
-                } else {
-                  return radius
-                }
-              })
-              .attr("fill" function(d){
-                if(d=="Sensex"){
-                  return 'red'
-                } else {
-                  return 'blue'
-                }
-              });
-              legend.append("text")
-              .attr("y",function(d,i){
-                return i*30 +5;
-              })
-              .attr("x",radius*5)
-              .text(function(d){
-                return d;
-              }) 
 
             // The rectangle for slider
               main.append("rect")
