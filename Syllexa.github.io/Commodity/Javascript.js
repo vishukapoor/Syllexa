@@ -237,9 +237,11 @@
                     d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
                 focus.select("circle.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Oil) + ")");
                 focus.select("text.y0").attr("transform", "translate(" + main_x(d.Date) + "," + main_y0(d.Oil) + ")").text(formatOutput0(d));
+
                 focus.select("circle.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Gold) + ")");
                 focus.select("text.y1").attr("transform", "translate(" + main_x(d.Date) + "," + main_y1(d.Gold) + ")").text(formatOutput1(d));
                 focus.select(".x").attr("transform", "translate(" + main_x(d.Date) + ",0)");
+                
                 focus.select(".y0").attr("transform", "translate(" + main_width * -1 + ", " + main_y0(d.Oil) + ")").attr("x2", main_width + main_x(d.Date));
                 focus.select(".y1").attr("transform", "translate(0, " + main_y1(d.Gold) + ")").attr("x1", main_x(d.Date));
               }
