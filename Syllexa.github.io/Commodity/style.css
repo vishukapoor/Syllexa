@@ -1,19 +1,15 @@
 body {
-  font: 10px sans-serif;
+    font: 10px sans-serif;
 }
-
 h1 {
     text-align: center;
-
 }
-
 .axis path,
 .axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
 }
-
 /*
 .x.axis path {
   display: none;
@@ -21,56 +17,45 @@ h1 {
 */
 
 .line {
-  stroke: black;
-  fill: none;
-  stroke-width: 0.75px;
+    stroke: black;
+    fill: none;
+    stroke-width: 0.75px;
 }
-
-
 .line.line0 {
-  stroke: steelblue;
+    stroke: steelblue;
 }
-
 .line.line1 {
-  stroke: indianred;
+    stroke: indianred;
 }
-
 .overlay {
-  fill: none;
-  pointer-events: all;
+    fill: none;
+    pointer-events: all;
 }
-
 .focus circle {
-  fill: none;
+    fill: none;
 }
-
 .focus circle.y0 {
-  stroke: blue;
+    stroke: blue;
 }
-
 .focus circle.y1 {
-  stroke: red;
+    stroke: red;
 }
-
 .focus line {
-  stroke: purple;
-  shape-rendering: crispEdges;
+    stroke: purple;
+    shape-rendering: crispEdges;
 }
-
 .focus line.y0 {
-  stroke: steelblue;
-  stroke-dasharray: 3 3;
-  opacity: .8;
+    stroke: steelblue;
+    stroke-dasharray: 3 3;
+    opacity: .8;
 }
-
 .focus line.y1 {
-  stroke: indianred;
-  stroke-dasharray: 3 3;
-  opacity: .8;
+    stroke: indianred;
+    stroke-dasharray: 3 3;
+    opacity: .8;
 }
-
 .brush .extent {
-  stroke: orange;
-  fill-opacity: .125;
-  shape-rendering: crispEdges;
+    stroke: orange;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
 }
