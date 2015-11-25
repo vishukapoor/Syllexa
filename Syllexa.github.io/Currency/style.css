@@ -23,15 +23,15 @@ h1 {
 }
 .line.line0 {
     stroke: steelblue;
-    stroke-width: 2.75px;
+    stroke-width: 1.75px;
 }
 .line.line1 {
     stroke: indianred;
-    stroke-width: 2.75px;
+    stroke-width: 1.75px;
 }
 .line.line2 {
     stroke: Green;
-    stroke-width: 2.75px;
+    stroke-width: 1.75px;
 }
 .overlay {
     fill: none;
@@ -57,16 +57,19 @@ h1 {
     stroke: steelblue;
     stroke-dasharray: 3 3;
     opacity: .8;
+    stroke-width: 1.75px;
 }
 .focus line.y1 {
     stroke: indianred;
     stroke-dasharray: 3 3;
     opacity: .8;
+    stroke-width: 1.75px;
 }
 .focus line.y2 {
     stroke: Green;
     stroke-dasharray: 3 3;
     opacity: .8;
+    stroke-width: 1.75px;
 }
 .brush .extent {
     stroke: Orange;
