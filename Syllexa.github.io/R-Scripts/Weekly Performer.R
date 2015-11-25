@@ -45,6 +45,7 @@ for(a in seq(List$Symbol)){
   
   Weekly_Gainer<- subset(Weekly_Gainer,Weekly_Gainer$Name!=0)
   Weekly_Loser<- subset(Weekly_Loser,Weekly_Loser$Name!=0)
+
   Weekly_Gainer$Return<- round(Weekly_Gainer$Return,2)
   Weekly_Loser$Return<- round(Weekly_Loser$Return,2)
   
