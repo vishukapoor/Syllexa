@@ -23,9 +23,11 @@ h1 {
 }
 .line.line0 {
     stroke: steelblue;
+    stroke-width: 2.75px;
 }
 .line.line1 {
     stroke: indianred;
+    stroke-width: 2.75px;
 }
 .overlay {
     fill: none;
