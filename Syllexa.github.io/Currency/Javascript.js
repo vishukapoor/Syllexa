@@ -312,7 +312,7 @@
 
                 focus.select(".x").attr("transform", "translate(" + main_x(d.Date) + ",0)");
                 focus.select(".y0").attr("transform", "translate(" + main_width * -1 + ", " + main_y0(d.USD_INR) + ")").attr("x2", main_width + main_x(d.Date));
-                focus.select(".y1").attr("transform", "translate(" + main_width * -1 + ", " + main_y0(d.Pound_INR) + ")").attr("x2", main_width + main_x(d.Date));
+                focus.select(".y1").attr("transform", "translate(" + main_width * -1 + ", " + main_y1(d.Pound_INR) + ")").attr("x2", main_width + main_x(d.Date));
                 focus.select(".y2").attr("transform", "translate(" + main_width * -1 + ", " + main_y0(d.Euro_INR) + ")").attr("x2", main_width + main_x(d.Date));
               }
             });
