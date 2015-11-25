@@ -4,13 +4,13 @@ Currency<- function(){
 
   Function<-dget(file = "https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/R-Scripts/GoogFin.R")
   
-  USD_INR<- Function(ticker = "USDINR",exchange = "",TimeFrame = "1Y")
+  USD_INR<- Function(ticker = "USDINR",exchange = "",TimeFrame = "5Y")
   colnames(USD_INR)[5]<- "USD_INR"
   
-  Pound_INR<- Function(ticker = "GBPINR",exchange = "",TimeFrame = "1Y")
+  Pound_INR<- Function(ticker = "GBPINR",exchange = "",TimeFrame = "5Y")
   colnames(Pound_INR)[5]<-"Pound_INR"
   
-  Euro_INR<-Function(ticker = "EURINR",exchange = "",TimeFrame = "1Y")
+  Euro_INR<-Function(ticker = "EURINR",exchange = "",TimeFrame = "5Y")
   colnames(Euro_INR)[5]<-"Euro_INR"
   
   Currency<- cbind(USD_INR,Pound_INR,Euro_INR)

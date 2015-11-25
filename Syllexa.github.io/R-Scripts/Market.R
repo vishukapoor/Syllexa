@@ -4,10 +4,10 @@ Market_Graphing<- function(){
     
   Stock<-dget(file = "https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/R-Scripts/GoogFin.R")
   
-  Nifty<- Stock(TimeFrame = "1Y")
+  Nifty<- Stock(TimeFrame = "5Y")
   Nifty$Name<-"Nifty"
   colnames(Nifty)[5]<-"Nifty"
-  Sensex<- Stock(ticker = "SENSEX",exchange = "INDEXBOM",TimeFrame = "1Y")
+  Sensex<- Stock(ticker = "SENSEX",exchange = "INDEXBOM",TimeFrame = "5Y")
   colnames(Sensex)[5]<- "Sensex"
   
   Data<- cbind(Nifty,Sensex)

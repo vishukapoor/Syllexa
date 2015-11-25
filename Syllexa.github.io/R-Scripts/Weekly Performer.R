@@ -48,6 +48,9 @@ for(a in seq(List$Symbol)){
 
   Weekly_Gainer$Return<- round(Weekly_Gainer$Return,2)
   Weekly_Loser$Return<- round(Weekly_Loser$Return,2)
+    
+  Weekly_Gainer$Return<- paste(Weekly_Gainer$Return,"%",sep = "")
+  Weekly_Loser$Return<- paste(Weekly_Loser$Return,"%",sep = "")
   
   name<-paste("C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Weekly Gainer","data.csv",sep = "\\")
   
