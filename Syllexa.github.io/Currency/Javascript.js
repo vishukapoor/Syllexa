@@ -324,7 +324,7 @@
              var Start= End.setFullYear(End.getFullYear() - 1);
 
             function brush() {
-              main_x.domain(brush.empty() ? mini_x.domain() : brush.extent(Start,End));
+              main_x.domain(brush.empty() ? mini_x.domain() : brush.extent(10,50));
               main.select(".line0").attr("d", main_line0);
               main.select(".line1").attr("d", main_line1);
               main.select(".line2").attr("d", main_line2);
