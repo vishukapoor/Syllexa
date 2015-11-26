@@ -107,9 +107,7 @@
               });
 
               
-              var End = new Date()
-              var Start = d3.time.month.offset(End,1)
-
+              
 
             // Scale the range of the data
               main_x.domain([data[0].Date, data[data.length - 1].Date]);
@@ -254,8 +252,14 @@
               }
             });
 
+              var Today= new Date()
+              var End= parseDate(Today.setDate(Today.getDate()-1));
+
+              var Start= End.setFullYear(End.getFullYear() - 1);
+
+
             function brush() {
-              main_x.domain(brush.empty() ? mini_x.domain() : brush.extent([Start,End]));
+              main_x.domain(brush.empty() ? mini_x.domain() : brush.extent(Start,End));
               main.select(".line0").attr("d", main_line0);
               main.select(".line1").attr("d", main_line1);
               main.select(".x.axis").call(main_xAxis);
