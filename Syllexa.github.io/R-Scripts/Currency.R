@@ -17,5 +17,9 @@ Currency<- function(){
   
   Currency<- Currency[,c("Date","USD_INR","Pound_INR","Euro_INR")]
   
+  Currency$USD_INR<- round(Currency$USD_INR,2)
+  Currency$Pound_INR<- round(Currency$Pound_INR,2)
+  Currency$Euro_INR<- round(Currency$Euro_INR,2)
+  
   write.csv(Currency,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Currency\\Currency.csv",row.names = F)
 }
