@@ -54,6 +54,8 @@
                 .x(mini_x)
                 .on("brush", brush);
 
+
+
             // Define the line
             var main_line0 = d3.svg.line()
                 .interpolate("cardinal")
@@ -103,6 +105,11 @@
               data.sort(function(a, b) {
                 return a.Date - b.Date;
               });
+
+              
+              var End = new Date()
+              var Start = d3.time.month.offset(End,1)
+
 
             // Scale the range of the data
               main_x.domain([data[0].Date, data[data.length - 1].Date]);
@@ -248,7 +255,7 @@
             });
 
             function brush() {
-              main_x.domain(brush.empty() ? mini_x.domain() : brush.extent([0.2,0.8]));
+              main_x.domain(brush.empty() ? mini_x.domain() : brush.extent([Start,End]));
               main.select(".line0").attr("d", main_line0);
               main.select(".line1").attr("d", main_line1);
               main.select(".x.axis").call(main_xAxis);
