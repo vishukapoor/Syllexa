@@ -10,6 +10,9 @@ Market_Graphing<- function(){
   Sensex<- Stock(ticker = "SENSEX",exchange = "INDEXBOM",TimeFrame = "5Y")
   colnames(Sensex)[5]<- "Sensex"
   
+  Nifty<- Nifty[Nifty$Date %in% Sensex$Date,]
+  Sensex<- Sensex[Sensex$Date %in% Nifty$Date,]
+  
   Data<- cbind(Nifty,Sensex)
   
   Data<- Data[,c("Date","Nifty","Sensex")]
