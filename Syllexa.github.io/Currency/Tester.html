@@ -1,7 +1,6 @@
   <html>
 <head>
 <style type="text/css">
-
 #graphdiv2 {
   position: absolute;
   left: 10%;
@@ -18,16 +17,16 @@
 <script type="text/javascript">
   g2 = new Dygraph(
     document.getElementById("graphdiv2"),
-    "https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/data.csv", // path to CSV file
+    "https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Currency/Currency.csv", // path to CSV file
   {
     legend: 'always',
-    title: 'Market Movement',
+    title: 'Currency Movement',
     showRangeSelector: true,
     showInRangeSelector: true,
     //dateWindow: [01-01-2015,]
     animatedZooms: true, 
-    //labels: ["Date", "Nifty", "Sensex"],
-    Nifty : {
+    labels: ['Date', "USD", "Pound","Euro"],
+    Pound : {
   axis : { }
   }
     
