@@ -122,13 +122,13 @@ input:checked + label {
 
 <main>
   
-  <input id="tab1" type="radio" name="tabs" checked>
+  <input id="tab1" type="radio" name="tabs" >
   <label for="tab1"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/Tester.html">Market Performance</a></label>
     
   <input id="tab2" type="radio" name="tabs" >
   <label for="tab2"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Currency/Tester.html">Currency Performance</a></label>
     
-  <input id="tab3" type="radio" name="tabs">
+  <input id="tab3" type="radio" name="tabs" checked>
   <label for="tab3"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Commodity/Tester.html">Commodity Performance</a></label>
     
   <input id="tab4" type="radio" name="tabs">
@@ -149,10 +149,10 @@ input:checked + label {
 <script type="text/javascript">
    g2 = new Dygraph(
     document.getElementById("graphdiv2"),
-    "https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/data.csv", // path to CSV file
+    "https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Commodity/data.csv", // path to CSV file
   {
     legend: 'always',
-    title: 'Market Movement',
+    title: 'Commodity Movement',
     showRangeSelector: true,
     showInRangeSelector: true,
     //dateWindow: [01-01-2015,]
