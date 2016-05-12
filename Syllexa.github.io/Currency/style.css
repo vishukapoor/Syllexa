@@ -1,0 +1,78 @@
+body {
+    font: 10px sans-serif;
+}
+h1 {
+    text-align: center;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+/*
+.x.axis path {
+  display: none;
+}
+*/
+
+.line {
+    stroke: black;
+    fill: none;
+    stroke-width: 0.75px;
+}
+.line.line0 {
+    stroke: steelblue;
+    stroke-width: 1.75px;
+}
+.line.line1 {
+    stroke: indianred;
+    stroke-width: 1.75px;
+}
+.line.line2 {
+    stroke: Green;
+    stroke-width: 1.75px;
+}
+.overlay {
+    fill: none;
+    pointer-events: all;
+}
+.focus circle {
+    fill: none;
+}
+.focus circle.y0 {
+    stroke: steelblue;
+}
+.focus circle.y1 {
+    stroke: indianred;
+}
+.focus circle.y2 {
+    stroke: Green;
+}
+.focus line {
+    stroke: purple;
+    shape-rendering: crispEdges;
+}
+.focus line.y0 {
+    stroke: steelblue;
+    stroke-dasharray: 3 3;
+    opacity: .8;
+    stroke-width: 1.75px;
+}
+.focus line.y1 {
+    stroke: indianred;
+    stroke-dasharray: 3 3;
+    opacity: .8;
+    stroke-width: 1.75px;
+}
+.focus line.y2 {
+    stroke: Green;
+    stroke-dasharray: 3 3;
+    opacity: .8;
+    stroke-width: 1.75px;
+}
+.brush .extent {
+    stroke: Orange;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+}

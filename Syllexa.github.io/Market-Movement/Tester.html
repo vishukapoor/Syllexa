@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Market Performance</title>
+</head>
+<style type="text/css">
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font: 14px/1 'Open Sans', sans-serif;
+  color: #555;
+  background: #f5f5f5;
+}
+
+
+#graphdiv2 {
+  position: absolute;
+  left: 10%;
+  top: 25%;
+  right: 10%;
+  bottom: 10%;
+   }
+
+p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+main {
+  min-width: 120px;
+  max-width: 80%;
+  padding: 25px;
+  margin: 0 auto;
+  background: #f5f5f5;
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+/*
+label[for*='1']:before { content: '\f141'; }
+label[for*='2']:before { content: '\f17d'; }
+label[for*='3']:before { content: '\f16b'; }
+label[for*='4']:before { content: '\f1a9'; }
+*/
+label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5,
+#tab6:checked ~ #content6,
+#tab7:checked ~ #content7,
+#tab8:checked ~ #content8,
+ {
+  display: block;
+}
+
+
+@media screen and (max-width: 650px) {
+  label {
+    font-size: 0;
+  }
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  label {
+    padding: 15px;
+  }
+}
+</style>
+<body>
+
+<main>
+  
+  <input id="tab1" type="radio" name="tabs" checked>
+  <label for="tab1"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/Tester.html">Market Performance</a></label>
+    
+  <input id="tab2" type="radio" name="tabs" >
+  <label for="tab2"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Currency/Tester.html">Currency Performance</a></label>
+    
+  <input id="tab3" type="radio" name="tabs">
+  <label for="tab3"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Commodity/Tester.html">Commodity Performance</a></label>
+    
+  <input id="tab4" type="radio" name="tabs">
+  <label for="tab4"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Weekly%20Gainer/Weekly%20Gainer.html">Top Weekly Gainer</a></label>
+
+<input id="tab5" type="radio" name="tabs">
+  <label for="tab5"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Weekly%20Looser/Weekly%20Looser.html">Top Weekly Loser</a></label>
+
+<input id="tab6" type="radio" name="tabs">
+  <label for="tab6"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Economic%20Calendar/Economic%20Calendar.html">Economic Calendar</a></label>
+
+<input id="tab8" type="radio" name="tabs">
+  <label for="tab8"><a href="https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Syllexa Solutions.html">Back</a></label>
+</main>
+<div id="graphdiv2"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.1/dygraph-combined.js"> </script>
+<script type="text/javascript">
+	 g2 = new Dygraph(
+    document.getElementById("graphdiv2"),
+    "https://raw.githubusercontent.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/Market-Movement/data.csv", // path to CSV file
+  {
+    legend: 'always',
+    title: 'Market Movement',
+    showRangeSelector: true,
+    showInRangeSelector: true,
+    //dateWindow: [01-01-2015,]
+    animatedZooms: true, 
+    labels: ["Date", "Nifty", "Sensex"],
+    Nifty : {
+  axis : { }
+  }
+    
+   }         
+
+  );
+</script>
+</body>
+</html>

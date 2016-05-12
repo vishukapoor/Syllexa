@@ -1,0 +1,78 @@
+                   <!doctype html>
+                    <html>
+                    <head>
+                    <meta charset="utf-8">
+                    <title>HTML Form</title>
+                    <style type="text/css" src="htmlform.css"></style>
+                    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+                <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+                    <script>
+                      $(document).ready(function () {
+                      $("#htmlform").submit(function (e) {
+                      var url = "html_form_send.php"; // the script where you handle the form input.
+                      $.ajax({type: "POST",
+                       url: url,
+                       data: $(this).serialize(), // serializes the form's elements.
+                          success: function (data) {
+                              alert(data); // show response from the php script.
+                          }});
+                      e.preventDefault(); // avoid to execute the actual submit of the form
+                        });
+                        });
+                  </script>
+                    </head>
+                    <form name="htmlform" id="htmlform" method="post" action="html_form_send.php">
+                    <table width="450px">
+                      <tr>
+                     <td valign="top">
+                      <label for="first_name">First Name *</label>
+                     </td>
+                     <td valign="top">
+                      <input  type="text" name="first_name" maxlength="50" size="30">
+                     </td>
+                    </tr>
+
+                    <tr>
+                     <td valign="top">
+                      <label for="last_name">Last Name *</label>
+                     </td>
+                     <td valign="top">
+                      <input  type="text" name="last_name" maxlength="50" size="30">
+                     </td>
+                    </tr>
+                    <tr>
+                     <td valign="top">
+                      <label for="email">Email Address *</label>
+                     </td>
+                     <td valign="top">
+                      <input  type="text" name="email" maxlength="80" size="30">
+                     </td>
+
+                    </tr>
+                    <tr>
+                     <td valign="top">
+                      <label for="telephone">Telephone Number</label>
+                     </td>
+                     <td valign="top">
+                      <input  type="text" name="telephone" maxlength="30" size="30">
+                     </td>
+                    </tr>
+                    <tr>
+                     <td valign="top">
+                      <label for="comments">Comments *</label>
+                     </td>
+                     <td valign="top">
+                      <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
+                     </td>
+
+                    </tr>
+                    <tr>
+                     <td colspan="2" style="text-align:center">
+                      <input class="Submit" type="submit" name="Submit" value="Submit"/>
+                      </td>
+                    </tr>
+                    </table>
+                    </form> 
+
+                    </body>
+                    </html>

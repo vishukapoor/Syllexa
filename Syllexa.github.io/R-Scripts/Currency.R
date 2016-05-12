@@ -1,0 +1,25 @@
+Currency<- function(){
+    
+  
+
+  Function<-dget(file = "https://rawgit.com/vishukapoor/Syllexa/gh-pages/Syllexa.github.io/R-Scripts/GoogFin.R")
+  
+  USD_INR<- Function(ticker = "USDINR",exchange = "",TimeFrame = "5Y")
+  colnames(USD_INR)[5]<- "USD_INR"
+  
+  Pound_INR<- Function(ticker = "GBPINR",exchange = "",TimeFrame = "5Y")
+  colnames(Pound_INR)[5]<-"Pound_INR"
+  
+  Euro_INR<-Function(ticker = "EURINR",exchange = "",TimeFrame = "5Y")
+  colnames(Euro_INR)[5]<-"Euro_INR"
+  
+  Currency<- cbind(USD_INR,Pound_INR,Euro_INR)
+  
+  Currency<- Currency[,c("Date","USD_INR","Pound_INR","Euro_INR")]
+  
+  Currency$USD_INR<- round(Currency$USD_INR,2)
+  Currency$Pound_INR<- round(Currency$Pound_INR,2)
+  Currency$Euro_INR<- round(Currency$Euro_INR,2)
+  
+  write.csv(Currency,"C:\\Users\\Vishu\\Documents\\GitHub\\Syllexa\\Syllexa.github.io\\Currency\\Currency.csv",row.names = F)
+}
